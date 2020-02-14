@@ -124,8 +124,10 @@ La captura inicia cuando hay un flanco positivo en el pclk y href. Cuando esto p
 Si href es 0 se aumenta el tamaño de la longitud de una pantalla; en caso de que se alcance el tamaño de longitud máxima se guarda en FSM_state DONE. 
  
 
-Para el cambio de RGB565 a RBG332 se usa la siguiente línea: 
-##### DP_RAM_data_out = {temp_rgb[15:13], temp_rgb[10:8],temp_rgb[4:3]}.
+Para el cambio de RGB565 a RBG332 se usa la siguiente línea:
+```verilog
+DP_RAM_data_out = {temp_rgb[15:13], temp_rgb[10:8],temp_rgb[4:3]}.
+```
 En este caso lo que se hace es tomar los bits más significativos de temp_rgb desde la posición 15 hasta la 11; después se toman los más significativos de la 10 a 5 y los más significativos de la 4 a la 1 y se concatenan en la saldia de ocho caracteres.  
 
 #### test_cam:
